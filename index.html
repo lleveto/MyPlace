@@ -3,24 +3,24 @@
 <head>
     <title>MyPlace URL Redirection</title>
     <script>
-        // Function to generate the MyPlace URL with encoded parcel pin
-        function generateMyPlaceURL(encodedParcelPin) {
+        // Function to generate the MyPlace URL with the parcel pin
+        function generateMyPlaceURL(parcelPin) {
+            // Encode the parcel pin using Base64
+            const encodedParcelPin = btoa(parcelPin);
+
             // Construct the MyPlace URL with the encoded parcel pin
-            const myPlaceURL = `https://myplace.cuyahogacounty.us/${encodedParcelPin}=?city=OTk=&searchBy=UGFyY2Vs`;
+            const myPlaceURL = `https://myplace.cuyahogacounty.us/${encodedParcelPin}?city=OTk=&searchBy=UGFyY2Vs`;
 
             // Redirect to the MyPlace URL
             window.location.href = myPlaceURL;
         }
 
-        // Read the query parameter
+        // Get the parcel pin from the query parameter
         const urlParams = new URLSearchParams(window.location.search);
         const parcelpin = urlParams.get('parcelpin');
 
-        // Encode the parcel pin using Base64
-        const encodedParcelPin = btoa(parcelpin);
-
-        // Generate the MyPlace URL when the page loads
-        generateMyPlaceURL(encodedParcelPin);
+        // Generate the MyPlace URL with the provided parcel pin
+        generateMyPlaceURL(parcelpin);
     </script>
 </head>
 <body>
