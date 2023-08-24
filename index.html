@@ -19,8 +19,11 @@
         const urlParams = new URLSearchParams(window.location.search);
         const parcelpin = urlParams.get('parcelpin');
 
-        // Generate the MyPlace URL with the provided parcel pin
-        generateMyPlaceURL(parcelpin);
+        // Remove any unwanted characters from the parcel pin
+        const cleanParcelPin = parcelpin.replace(/"/g, '');
+
+        // Generate the MyPlace URL with the cleaned parcel pin
+        generateMyPlaceURL(cleanParcelPin);
     </script>
 </head>
 <body>
