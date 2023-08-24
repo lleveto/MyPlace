@@ -3,13 +3,13 @@
 <head>
     <title>MyPlace URL Redirection</title>
     <script>
-        // Function to generate the MyPlace URL with encoded parcel pin
+        // Function to replace the placeholder with parcel pin in the URL
         function generateMyPlaceURL(parcelpin) {
             // Encode the parcel pin
             const encodedParcelPin = encodeURIComponent(parcelpin);
 
             // Construct the MyPlace URL with the encoded parcel pin
-            const myPlaceURL = `https://myplace.cuyahogacounty.us/MzQyMTYwMTI=?city=OTk=&searchBy=UGFyY2Vs&parcelpin=${encodedParcelPin}`;
+            const myPlaceURL = `https://myplace.cuyahogacounty.us/?search=${encodedParcelPin}`;
 
             // Redirect to the MyPlace URL
             window.location.href = myPlaceURL;
