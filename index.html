@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>MyPlace URL Generator</title>
+    <title>MyPlace URL Redirection</title>
+    <script>
+        // Read the query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const parcelpin = urlParams.get('parcelpin');
+
+        // Encode the parcel pin
+        const encodedParcelPin = encodeURIComponent(parcelpin);
+
+        // Construct the MyPlace URL with the encoded parcel pin
+        const myPlaceURL = `https://myplace.cuyahogacounty.us/MzQyMTYwMTI=?city=OTk=&searchBy=UGFyY2Vs&parcelpin=${encodedParcelPin}`;
+
+        // Redirect to the MyPlace URL
+        window.location.href = myPlaceURL;
+    </script>
 </head>
 <body>
-    <h1>MyPlace URL Generator</h1>
-    
-    <!-- Include your JavaScript file here -->
-    <script src="GenerateEncodedURL.js"></script>
+    <!-- This page will automatically redirect, so you can leave the body empty -->
 </body>
 </html>
