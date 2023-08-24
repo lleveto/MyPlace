@@ -1,0 +1,18 @@
+<!-- HTML -->
+<button id="generateURL">Generate URL</button>
+<p>Encoded URL: <span id="encodedURL"></span></p>
+
+<!-- JavaScript -->
+<script>
+document.getElementById('generateURL').addEventListener('click', function() {
+    // Simulating fetching the parcel pin from ArcGIS Online
+    // In actual implementation, use ArcGIS API to fetch the data
+    var parcelPin = "{parcelpin}"; // Replace with fetched value
+
+    var encodedParcelPin = encodeURIComponent(parcelPin);
+
+    var generatedURL = "https://myplace.cuyahogacounty.us/" + encodedParcelPin;
+
+    document.getElementById('encodedURL').textContent = generatedURL;
+});
+</script>
